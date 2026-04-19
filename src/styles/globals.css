@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --font-display: 'Syne', serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Raleway', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
   --bg: #060914;
   --bg-secondary: #0d1424;
   --bg-card: rgba(255,255,255,0.04);
@@ -84,6 +84,7 @@ body {
 
 .font-mono {
   font-family: var(--font-mono);
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
 /* Glass card */

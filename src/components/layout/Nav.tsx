@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ThemeSwitcher } from '../ui/ThemeSwitcher'
+import { Logo } from '../ui/Logo'
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -44,13 +45,9 @@ export function Nav() {
       }}
     >
       {/* Logo */}
-      <a href="#hero" style={{ textDecoration: 'none' }}>
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="font-display"
-          style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}
-        >
-          <span style={{ color: 'var(--accent)' }}>N</span>ithin<span style={{ color: 'var(--text-muted)' }}>.</span>
+      <a href="#hero" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <Logo />
         </motion.div>
       </a>
 

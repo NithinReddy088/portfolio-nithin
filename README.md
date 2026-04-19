@@ -143,6 +143,12 @@ bun run build
 # Set publish directory to: dist
 ```
 
+Or with the Netlify CLI:
+```bash
+npm run build
+npx netlify deploy --prod --dir=dist
+```
+
 ### Static hosting
 Upload the contents of `dist/` to any static host (Cloudflare Pages, GitHub Pages, S3, etc.)
 

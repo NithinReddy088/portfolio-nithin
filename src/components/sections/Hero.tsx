@@ -158,7 +158,7 @@ export function Hero() {
           className="font-display"
           style={{
             fontSize: 'clamp(2.8rem, 8vw, 7rem)',
-            fontWeight: isLight ? 300 : 800,
+            fontWeight: isLight ? 400 : 800,
             lineHeight: 1.05,
             letterSpacing: isLight ? '-0.03em' : '-0.04em',
             color: 'var(--text-primary)',
