@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ThemeSwitcher } from '../ui/ThemeSwitcher'
 import { Logo } from '../ui/Logo'
 
 const navLinks = [
@@ -86,7 +85,6 @@ export function Nav() {
 
       {/* Right side */}
       <div className="flex items-center gap-3">
-        <ThemeSwitcher />
         <a
           href="#contact"
           className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium magnetic"

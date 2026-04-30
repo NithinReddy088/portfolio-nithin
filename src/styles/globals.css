@@ -59,9 +59,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Noise overlay for supported themes */
-[data-theme="neo-dark"] body::before,
-[data-theme="cyberpunk"] body::before {
+/* Noise overlay */
+body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -147,33 +146,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-/* Terminal theme overrides */
-[data-theme="terminal"] .glass-card {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-style: solid;
-}
-
-[data-theme="terminal"] * {
-  border-radius: 0 !important;
-}
-
-[data-theme="terminal"] .rounded-full {
-  border-radius: 0 !important;
-}
-
-/* Cursor blink for terminal */
-[data-theme="terminal"] .cursor-blink::after {
-  content: '▋';
-  animation: blink 1s step-end infinite;
-  color: var(--accent);
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 /* Scrollbar in sections */

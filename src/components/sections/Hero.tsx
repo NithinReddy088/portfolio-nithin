@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowDown, MapPin, Zap } from 'lucide-react'
 import { resumeData } from '../../data/resume'
-import { useTheme } from '../../hooks/useTheme'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,10 +13,8 @@ const fadeUp = {
 }
 
 export function Hero() {
-  const { theme } = useTheme()
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  // Particle/dot grid for neo-dark / cyberpunk
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -84,10 +81,7 @@ export function Hero() {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
     }
-  }, [theme.id])
-
-  const isTerminal = theme.id === 'terminal'
-  const isLight = theme.id === 'minimal-luxury'
+  }, [])
 
   return (
     <section
@@ -99,7 +93,7 @@ export function Hero() {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
-        style={{ opacity: theme.id === 'terminal' ? 0.6 : 0.4 }}
+        style={{ opacity: 0.4 }}
       />
 
       {/* Gradient blobs */}
@@ -107,17 +101,6 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{ background: 'var(--gradient-hero)' }}
       />
-
-      {/* Grid lines for terminal */}
-      {isTerminal && (
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(0,255,80,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,80,0.04) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
-      )}
 
       <div className="container relative z-10 text-center" style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
 
@@ -135,20 +118,6 @@ export function Hero() {
           {resumeData.location} · {resumeData.availability}
         </motion.div>
 
-        {/* Terminal prefix for terminal theme */}
-        {isTerminal && (
-          <motion.div
-            custom={0.5}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="font-mono mb-2"
-            style={{ color: 'var(--accent)', fontSize: '0.85rem' }}
-          >
-            $ whoami
-          </motion.div>
-        )}
-
         {/* Name */}
         <motion.h1
           custom={1}
@@ -158,27 +127,18 @@ export function Hero() {
           className="font-display"
           style={{
             fontSize: 'clamp(2.8rem, 8vw, 7rem)',
-            fontWeight: isLight ? 400 : 800,
+            fontWeight: 800,
             lineHeight: 1.05,
-            letterSpacing: isLight ? '-0.03em' : '-0.04em',
+            letterSpacing: '-0.04em',
             color: 'var(--text-primary)',
             marginBottom: '0.5rem',
           }}
         >
-          {isTerminal ? (
-            <span>
-              <span style={{ color: 'var(--text-muted)' }}>{'> '}</span>
-              <span className="gradient-text">Nithin Reddy</span>
-              <br />
-              <span className="gradient-text cursor-blink">Sunkara</span>
-            </span>
-          ) : (
-            <span>
-              <span className="gradient-text">Nithin</span>
-              <br />
-              <span>Reddy Sunkara</span>
-            </span>
-          )}
+          <span>
+            <span className="gradient-text">Nithin</span>
+            <br />
+            <span>Reddy Sunkara</span>
+          </span>
         </motion.h1>
 
         {/* Title */}
